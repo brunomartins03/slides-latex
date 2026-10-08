@@ -2,6 +2,12 @@
 
 A Beamer slide template based on the `mubeamer` theme (Masaryk University, LPPL 1.3), built with Docker so no local TeX installation is needed.
 
+## Preview
+
+| Title slide | Content slide |
+| --- | --- |
+| ![Title slide](docs/slide-1.png) | ![Content slide](docs/slide-2.png) |
+
 ## Usage
 
 ```sh
