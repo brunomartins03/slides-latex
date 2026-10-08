@@ -1,0 +1,21 @@
+name: Build slides
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+
+      - name: Compile PDF
+        run: make build
+        working-directory: slides
+
+      - uses: actions/upload-artifact@v6
+        with:
+          name: slides
+          path: slides/main.pdf
+          if-no-files-found: error

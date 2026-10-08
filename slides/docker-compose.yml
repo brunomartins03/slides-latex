@@ -1,0 +1,16 @@
+services:
+  latex:
+    build: .
+    image: slides-latex:latest
+    working_dir: /workspace
+    environment:
+      - DOC=${DOC:-main}
+    volumes:
+      - .:/workspace
+    command: >
+      sh -c "
+        pdflatex -interaction=nonstopmode -halt-on-error $${DOC:-main}.tex &&
+        biber $${DOC:-main} &&
+        pdflatex -interaction=nonstopmode -halt-on-error $${DOC:-main}.tex &&
+        pdflatex -interaction=nonstopmode -halt-on-error $${DOC:-main}.tex
+      "
